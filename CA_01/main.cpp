@@ -143,10 +143,10 @@ void print_int_vector(__m128i a, unsigned char type)
         print_int_vector_by_type<signed int[4]>(tmp.m128_i32, 3, true);
         break;
     case '7':
-        print_int_vector_by_type<uint64_t[2]>(tmp.m128_u64, 1, false, true);
+        print_int_vector_by_type<unsigned long[2]>(tmp.m128_u64, 1, false, true);
         break;
     case '8':
-        print_int_vector_by_type<int64_t[2]>(tmp.m128_i64, 1, true, true);
+        print_int_vector_by_type<signed long[2]>(tmp.m128_i64, 1, true, true);
         break;
 
     default:
