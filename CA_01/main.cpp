@@ -86,8 +86,8 @@ typedef union
     unsigned int m128_u32[4];
     signed int m128_i32[4];
 
-    uint64_t m128_u64[2];
-    int64_t m128_i64[2];
+    unsigned long m128_u64[2];
+    signed long m128_i64[2];
 
 } intVec;
 
@@ -103,6 +103,7 @@ void print_int_vector_by_type(IntType var, int n, bool is_signed = false, bool i
 {
     const char* print_type;
     if(is_long)
+
         print_type = is_signed ? "%ld" : "%lX";
     else
         print_type = is_signed ? "%d" : "%X";
