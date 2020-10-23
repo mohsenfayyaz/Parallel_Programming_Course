@@ -59,7 +59,7 @@ void print_cpu_info()
     }
 
     print_names();
-    printf("%s\n", MMX ? "MMX   Supported" : "MMX   NOT Supported");
+    printf("\n%s\n", MMX ? "MMX   Supported" : "MMX   NOT Supported");
     printf("%s\n", SSE ? "SSE   Supported" : "SSE   NOT Supported");
     printf("%s\n", SSE2 ? "SSE2  Supported" : "SSE2  NOT Supported");
     printf("%s\n", SSE3 ? "SSE3  Supported" : "SSE3  NOT Supported");
@@ -176,15 +176,26 @@ void print_int_test(__m128i a)
 
 void print_spfp_vector(__m128 a)
 {
+    floatVec tmp;
+    tmp.float128 = a;
+    printf("[");
+    for (int i = 3; i > 0; i--)
+    {
+        printf("%f", tmp.m128_sp[i]);
+        printf(", ");
+    }
+    printf("%f", tmp.m128_sp[0]);
+    printf("]\n");
 }
 
 
 
 int main(void)
 {
-    print_names();
+    // print_names();
     // ------Q1------
-    // print_cpu_info();
+    print_cpu_info();
+    printf("\n");
 
     // -----Q2.a-----
     unsigned char int_array[16] = {0X00, 0X11, 0X22, 0X33, 0X44, 0X55, 0X66, 0X77,
@@ -194,7 +205,11 @@ int main(void)
     print_int_test(a);
 
     // -----Q2.b-----
-    float float_array[2] = {1.1, 2.2};
+    float float_array[4] = {1.1, 2.2, 3.3, 4.4};
+    __m128 b;
+    b = _mm_load_ps(float_array);
+    printf("\nsingle precision float: ");
+    print_spfp_vector(b);
 
     return 0;
 }
