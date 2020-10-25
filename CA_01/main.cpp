@@ -59,6 +59,8 @@ void print_cpu_info()
     }
 
     print_names();
+    printf("\n");
+    system("cat /proc/cpuinfo | grep -e model -e MHz -e processor -e cores | head -5");
     printf("\n%s\n", MMX ? "MMX   Supported" : "MMX   NOT Supported");
     printf("%s\n", SSE ? "SSE   Supported" : "SSE   NOT Supported");
     printf("%s\n", SSE2 ? "SSE2  Supported" : "SSE2  NOT Supported");
