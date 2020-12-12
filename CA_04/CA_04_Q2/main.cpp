@@ -8,8 +8,9 @@
 
  
 
-// #define VECTOR_SIZE 1048576
-#define VECTOR_SIZE 100000
+#define VECTOR_SIZE 1048576
+// #define VECTOR_SIZE 524288
+
 
 
 using namespace std;
@@ -26,7 +27,7 @@ void show(float* v){
 void swap(float* v, long a, long b){
     float temp = v[a];
     v[a] = v[b];
-    v[b] = v[a];
+    v[b] = temp;
 }
 
 long partition (float* v, long low, long high) 
@@ -94,9 +95,7 @@ void copyArray(float* a, float* b){
     
 }
 
-int main(void){
-    vector<int> a;
-    
+int main(void){    
     float* v1 = new float[VECTOR_SIZE];
     float* v2 = new float[VECTOR_SIZE];
     for (long i = 0; i < VECTOR_SIZE; i++){
