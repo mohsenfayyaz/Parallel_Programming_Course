@@ -45,11 +45,13 @@ int main( void )
     // Work loop, do some work by looping VERYBIG times
     #pragma omp parallel for     \
       num_threads (4) \
-      private( sumx, sumy, k )   \
+      private( sumx, sumy, k , start )   \
       reduction( +: sum, total ) \
-      schedule( static)
-// schedule( dynamic, 2000 )
-// schedule( dynamic, 1000 )
+      schedule( dynamic, 1000 )
+      // schedule( dynamic, 2000 )      
+      
+      // schedule( static)
+
 
       for( int j=0; j<VERYBIG; j++ )
       {
