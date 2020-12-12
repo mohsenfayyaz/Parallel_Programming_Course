@@ -10,7 +10,7 @@ void parallel(float* v1){
     float max = 0, maxi = 0;
     long index = 0 , indexi = 0;
     #pragma omp parallel    \
-      num_threads (3) \
+      num_threads (4) \
       private( indexi, maxi ) 
       {
         indexi = 0;
@@ -30,7 +30,6 @@ void parallel(float* v1){
                 index = indexi;
             }
         }
-            
       }
       
     printf("max = %f , index = %ld \n", max, index);
@@ -77,8 +76,6 @@ int main(void){
 	long seconds2 = (end.tv_sec - start.tv_sec);
 	long micros2 = ((seconds2 * 1000000) + end.tv_usec) - (start.tv_usec);
 
-	// printf("\nThe serial result is   = v[%d] = %f\n", sres, v1[sres]);
-	// printf("The parallel result is = v[%d] = %f\n", pres, v1[pres]);
 	printf("Serial Run time = %ld \n", micros1);
 	printf("Parallel Run time = %ld \n", micros2);
 	printf("Speedup = %f\n\n", (float)(micros1) / (float)micros2);
