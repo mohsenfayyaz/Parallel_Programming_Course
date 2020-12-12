@@ -55,6 +55,18 @@ void quickSort(float* v, long left, long right){
     }
 }
 
+void parallelQuickSort(float* v, long left, long right){
+    if(left < right){
+        long p = partition(v, left, right);
+        #pragma omp task
+            parallelQuickSort(v, left, p -1);
+            
+        #pragma omp task
+            parallelQuickSort(v, p + 1, right);
+        
+    }
+}
+
 
 void scalar(float* v1){
     quickSort(v1,0,VECTOR_SIZE - 1);
@@ -62,20 +74,11 @@ void scalar(float* v1){
 }
 
 void parallel(float* v,long left ,long right){
-    #pragma omp parallel num_threads(10)
+    #pragma omp parallel num_threads(4)
 	{
 		#pragma omp single
 		{
-			if(left < right){
-                long p = partition(v, left, right);
-                #pragma omp task
-                    quickSort(v, left, p -1);
-                    
-                #pragma omp task
-                    quickSort(v, p + 1, right);
-                    
-            }
-
+            parallelQuickSort(v,left,right);
 		}
 	}
     
@@ -83,16 +86,25 @@ void parallel(float* v,long left ,long right){
 
 }
 
+void copyArray(float* a, float* b){
+    for (long i = 0; i < VECTOR_SIZE; i++)
+    {
+        b[i] = a[i];
+    }
+    
+}
+
 int main(void){
     vector<int> a;
     
-    float v1[VECTOR_SIZE];
-    float v2[VECTOR_SIZE];
+    float* v1 = new float[VECTOR_SIZE];
+    float* v2 = new float[VECTOR_SIZE];
     for (long i = 0; i < VECTOR_SIZE; i++){
 		float temp = static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / 100.0));
         v1[i] = temp;
-        v2[i] = temp;   
+        v2[i] = temp;
     }
+
 
 	struct timeval start, end;
 
