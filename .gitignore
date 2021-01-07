@@ -2,3 +2,15 @@
 *.o
 
 *.out
+
+*.exe
+
+CA_06/ConsoleApplication1/.vs/
+
+CA_06/ConsoleApplication1/Release/
+
+CA_06/ConsoleApplication1/ConsoleApplication1/Release/
+
+CA_06/ConsoleApplication1/ConsoleApplication1/Debug/
+
+CA_06/ConsoleApplication1/Debug/
