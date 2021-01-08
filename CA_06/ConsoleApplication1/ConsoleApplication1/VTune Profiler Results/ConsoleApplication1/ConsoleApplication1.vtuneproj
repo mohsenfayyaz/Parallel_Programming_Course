@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
  <connectionOption>localhost</connectionOption>
- <rdmgr>
-  <timestamp type="u64_t">1610052988</timestamp>
-  <hostname>DESKTOP-FEIK2JA</hostname>
-  <os>windows</os>
-  <product>Intel® VTune™ Profiler 2020 Update 3</product>
-  <buildNumber type="s32_t">612611</buildNumber>
-  <logicalCPUCount type="s32_t">8</logicalCPUCount>
-  <physicalCoreCount type="s32_t">4</physicalCoreCount>
-  <processorPackageCount type="s32_t">1</processorPackageCount>
-  <CPUFrequency type="s64_t">3600000000</CPUFrequency>
-  <CPUFamily type="s32_t">6</CPUFamily>
-  <CPUModel type="s32_t">158</CPUModel>
-  <CPUStepping type="s32_t">9</CPUStepping>
-  <CPUBrandName>Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz</CPUBrandName>
-  <isa>avx2</isa>
- </rdmgr>
  <vs_search_dirs>
   <searchDirs>
    <searchCategory>
     <category type="u8_t">1</category>
     <searchDirectory>
-     <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1\Release</name>
+     <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1\Debug</name>
      <recursive type="bool">false</recursive>
      <priority type="bool">false</priority>
     </searchDirectory>
@@ -221,17 +205,27 @@
      <recursive type="bool">false</recursive>
      <priority type="bool">false</priority>
     </searchDirectory>
+    <searchDirectory>
+     <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1\Release</name>
+     <recursive type="bool">false</recursive>
+     <priority type="bool">false</priority>
+    </searchDirectory>
    </searchCategory>
    <searchCategory>
     <category type="u8_t">2</category>
     <searchDirectory>
-     <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1\Release</name>
+     <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1\Debug</name>
      <recursive type="bool">false</recursive>
      <priority type="bool">false</priority>
     </searchDirectory>
     <searchDirectory>
      <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1</name>
      <recursive type="bool">true</recursive>
+     <priority type="bool">false</priority>
+    </searchDirectory>
+    <searchDirectory>
+     <name>F:\Programming\University\07_Parallel_Programming\CA\git\Parallel_Programming_Course\CA_06\ConsoleApplication1\Release</name>
+     <recursive type="bool">false</recursive>
      <priority type="bool">false</priority>
     </searchDirectory>
    </searchCategory>
@@ -328,7 +322,6 @@
    </searchCategory>
   </searchDirs>
  </vs_search_dirs>
- <contextValues type="bag"/>
  <All_Configurations-All_Platforms>
   <target_settings>
    <selected_workload>
@@ -441,7 +434,7 @@
    </workloads>
   </target_settings>
   <analysis_type_settings>
-   <selected_analysis_type_path>C:\Program Files (x86)\IntelSWTools\VTune Profiler 2020\config\analysis_type\survey.cfg</selected_analysis_type_path>
+   <selected_analysis_type_path>C:\Program Files (x86)\IntelSWTools\VTune Profiler 2020\config\analysis_type\threading_analysis.cfg</selected_analysis_type_path>
    <localhost>
     <launch>
      <at_start_point>
@@ -449,7 +442,7 @@
       <knob_values>
        <contextValue>
         <id>collectMemoryBW</id>
-        <value type="bool">false</value>
+        <value type="bool">true</value>
        </contextValue>
        <contextValue>
         <id>dramBandwidthLimitsAT</id>
@@ -473,8 +466,38 @@
        </contextValue>
       </knob_values>
      </at_start_point>
+     <at_start_point>
+      <at_path>C:\Program Files (x86)\IntelSWTools\VTune Profiler 2020\config\analysis_type\threading_analysis.cfg</at_path>
+      <knob_values>
+       <contextValue>
+        <id>enableStackCollect</id>
+        <value type="bool">true</value>
+       </contextValue>
+       <contextValue>
+        <id>groupForCustomControl</id>
+        <value type="null"></value>
+       </contextValue>
+       <contextValue>
+        <id>initialViewpoint</id>
+        <value>%ThreadingEfficiencyViewpointName</value>
+       </contextValue>
+       <contextValue>
+        <id>samplingAndWaits</id>
+        <value>sw</value>
+       </contextValue>
+       <contextValue>
+        <id>samplingInterval</id>
+        <value type="double">1</value>
+       </contextValue>
+       <contextValue>
+        <id>stackSizeCollect</id>
+        <value>0</value>
+       </contextValue>
+      </knob_values>
+     </at_start_point>
     </launch>
    </localhost>
   </analysis_type_settings>
  </All_Configurations-All_Platforms>
+ <contextValues type="bag"/>
 </root>

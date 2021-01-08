@@ -25,6 +25,7 @@ int put(int Queens[], int row, int column)
     }
     Queens[row] = column;
     if (row == N - 1) {
+        #pragma omp atomic
         solutions++;
     }
     else {
@@ -38,8 +39,9 @@ int put(int Queens[], int row, int column)
 
 void solve(int Queens[]) {
     int i;
+    #pragma omp parallel for schedule(dynamic, 1) num_threads(8)
     for (i = 0; i < N; i++) {
-        put(Queens, 0, i);
+        put(new int[N], 0, i);
     }
 }
 
